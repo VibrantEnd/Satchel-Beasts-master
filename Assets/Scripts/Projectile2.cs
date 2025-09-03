@@ -25,12 +25,13 @@ public class Projectile2 : MonoBehaviour
     {
         if (shake > 0)
         {
-            cam.transform.localPosition = Random.insideUnitSphere * shake;
+            cam.transform.position =  new Vector2(Random.Range(-shake, shake), Random.Range(-shake, shake));
             shake -= Time.deltaTime * decreaseFactor;
         }
         if(shake <= 0)
         {
             shake = 0.0f;
+            cam.transform.position = new Vector3(0, 0, -10);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,14 +41,14 @@ public class Projectile2 : MonoBehaviour
             collision.gameObject.GetComponent<Player>().TakeDamage(damage);
             GameObject hitParticle = Instantiate(HitParticle, transform.position, Quaternion.identity);
             hitParticle.transform.SetParent(null);
-            shake = 2;
+            shake = 100;
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Destroyer"))
         {
             GameObject parryParticle = Instantiate(ParryParticle, transform.position, Quaternion.identity);
             parryParticle.transform.SetParent(null);
-            shake = 1;
+            shake = 50;
             Destroy(gameObject);
         }
 
