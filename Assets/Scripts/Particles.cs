@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Particles : MonoBehaviour
 {
-    private float lifetime = 1f;
+    private float lifetime = .2f;
 
     void Update()
     {
