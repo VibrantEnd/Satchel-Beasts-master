@@ -18,7 +18,6 @@ public class Projectile : MonoBehaviour
         rB = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (shake > 0)
