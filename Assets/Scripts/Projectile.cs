@@ -24,10 +24,14 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Player2"))
         {
             collision.gameObject.GetComponent<Player2>().TakeDamage(damage);
+            GameObject hitParticle = Instantiate(HitParticle, transform.position, Quaternion.identity);
+            hitParticle.transform.SetParent(null);
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Destroyer"))
         {
+            GameObject parryParticle = Instantiate(ParryParticle, transform.position, Quaternion.identity);
+            parryParticle.transform.SetParent(null);
             Destroy(gameObject);
         }
     }
