@@ -5,6 +5,9 @@ public class Projectile : MonoBehaviour
     Animator anim;
     Rigidbody2D rB;
     public float damage;
+
+    [SerializeField] private GameObject HitParticle;
+    [SerializeField] private GameObject ParryParticle;
     void Awake()
     {
         anim = GetComponent<Animator>();
