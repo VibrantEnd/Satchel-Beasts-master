@@ -25,7 +25,10 @@ public class Projectile2 : MonoBehaviour
             collision.gameObject.GetComponent<Player>().TakeDamage(damage);
             Destroy(gameObject);
         }
-            
+        if (collision.gameObject.CompareTag("Destroyer"))
+        {
+            Destroy(gameObject);
+        }
 
     }
 }
