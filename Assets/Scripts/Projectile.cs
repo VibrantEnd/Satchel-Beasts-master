@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
     Animator anim;
     Rigidbody2D rB;
     public float damage;
-    [SerializeField] private Camera cam;
+    private GameObject cam;
     private float shake = 0f;
     private float decreaseFactor = 1f;
 
@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private GameObject ParryParticle;
     void Awake()
     {
+        cam = GameObject.FindWithTag("MainCamera");
         anim = GetComponent<Animator>();
         rB = GetComponent<Rigidbody2D>();
     }
@@ -25,7 +26,7 @@ public class Projectile : MonoBehaviour
             cam.transform.localPosition = Random.insideUnitSphere * shake;
             shake -= Time.deltaTime * decreaseFactor;
         }
-        else
+        if(shake <= 0)
         {
             shake = 0.0f;
         }

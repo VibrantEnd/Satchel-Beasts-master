@@ -199,5 +199,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  cam: {fileID: 3353758827821217052, guid: 9101c23fa90c19948a1475fd918fbb10, type: 3}
   HitParticle: {fileID: 8453701456838560912, guid: 1f034c54f9c1d4247a32f804a0fe1b68, type: 3}
   ParryParticle: {fileID: 1601364145502271240, guid: 091f92ece67b0734188eb52d8218ba49, type: 3}
